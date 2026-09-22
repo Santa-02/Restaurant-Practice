@@ -53,8 +53,7 @@ function Cart() {
     0
   );
 
-  const delivery = cartItems.length > 0 ? 300 : 0;
-  const total = subtotal + delivery;
+  const total = subtotal;
 
   return (
     <main className="cart-page">
@@ -129,11 +128,6 @@ function Cart() {
           <div className="summary-row">
             <span>Subtotal</span>
             <span>Rs. {subtotal.toLocaleString()}</span>
-          </div>
-
-          <div className="summary-row">
-            <span>Delivery</span>
-            <span>Rs. {delivery.toLocaleString()}</span>
           </div>
 
           <hr />
