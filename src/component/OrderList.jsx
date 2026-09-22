@@ -1,27 +1,34 @@
 function OrderList({ orders }) {
   return (
-    <section>
-      <h2>Orders</h2>
+    <section className="orders-section">
 
       {orders.length === 0 ? (
         <p>No orders available.</p>
       ) : (
-        <ul>
-          {orders.map((order) => (
-            <li key={order.id}>
-              <strong>Order #{order.id}</strong>
+        orders.map((order) => (
+          <div
+            className="order-card"
+            key={order.id}
+          >
 
-              <p>
+            <div>
+              <div className="order-number">
+                Order #{order.id}
+              </div>
+
+              <div>
                 {order.food} × {order.quantity}
-              </p>
+              </div>
+            </div>
 
-              <p>
-                Total: Rs. {order.total}
-              </p>
-            </li>
-          ))}
-        </ul>
+            <div className="order-total">
+              Rs. {order.total}
+            </div>
+
+          </div>
+        ))
       )}
+
     </section>
   );
 }

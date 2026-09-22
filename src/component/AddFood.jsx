@@ -14,46 +14,43 @@ function AddFood({ onAddFood }) {
 
     onAddFood(foodName, price);
 
-    // Clear form
     setFoodName("");
     setPrice("");
   };
 
   return (
-    <section>
-      <h2>Add Food</h2>
+    <section className="add-food-section">
 
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label>Food Name: </label>
+      <form
+        className="add-food-form"
+        onSubmit={handleSubmit}
+      >
 
-          <input
-            type="text"
-            value={foodName}
-            onChange={(e) => setFoodName(e.target.value)}
-            placeholder="Enter food name"
-          />
-        </div>
+        <input
+          className="food-input"
+          type="text"
+          value={foodName}
+          onChange={(e) => setFoodName(e.target.value)}
+          placeholder="Food name"
+        />
 
-        <br />
+        <input
+          className="food-input"
+          type="number"
+          value={price}
+          onChange={(e) => setPrice(e.target.value)}
+          placeholder="Price"
+        />
 
-        <div>
-          <label>Price: </label>
-
-          <input
-            type="number"
-            value={price}
-            onChange={(e) => setPrice(e.target.value)}
-            placeholder="Enter price"
-          />
-        </div>
-
-        <br />
-
-        <button type="submit">
-          Add Food
+        <button
+          className="add-button"
+          type="submit"
+        >
+          ➕ Add Food
         </button>
+
       </form>
+
     </section>
   );
 }

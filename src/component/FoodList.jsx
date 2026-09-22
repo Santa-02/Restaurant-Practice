@@ -1,26 +1,43 @@
 function FoodList({ foods, onDeleteFood }) {
   return (
-    <section>
-      <h2>Food Items</h2>
+    <div className="food-grid">
 
       {foods.length === 0 ? (
         <p>No food items available.</p>
       ) : (
-        <ul>
-          {foods.map((food) => (
-            <li key={food.id}>
-              {food.name} - Rs. {food.price}
+        foods.map((food) => (
+          <div className="food-card" key={food.id}>
+
+            <img
+              className="food-image"
+              src={food.image}
+              alt={food.name}
+            />
+
+            <div className="food-info">
+
+              <h3 className="food-name">
+                {food.name}
+              </h3>
+
+              <p className="food-price">
+                Rs. {food.price}
+              </p>
 
               <button
+                className="delete-button"
                 onClick={() => onDeleteFood(food.id)}
               >
-                Delete
+                🗑️ Delete
               </button>
-            </li>
-          ))}
-        </ul>
+
+            </div>
+
+          </div>
+        ))
       )}
-    </section>
+
+    </div>
   );
 }
 
