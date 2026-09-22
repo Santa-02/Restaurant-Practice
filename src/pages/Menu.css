@@ -1,0 +1,489 @@
+/* =========================
+   MENU PAGE
+========================= */
+
+.menu-page {
+  min-height: 100vh;
+  background: #f6f7f4;
+  color: #1e1e1e;
+}
+
+.menu-container {
+  max-width: 1250px;
+  margin: 0 auto;
+  padding: 45px 30px 70px;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+.menu-header {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 32px;
+}
+
+.menu-small-title {
+  color: #d9792b;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  margin-bottom: 8px;
+}
+
+.menu-header h1 {
+  color: #202020 !important;
+  font-size: 44px;
+  line-height: 1.15;
+  font-weight: 750;
+  margin: 0 0 12px;
+}
+
+.menu-subtitle {
+  color: #777;
+  font-size: 16px;
+  line-height: 1.6;
+  margin: 0;
+}
+
+
+/* =========================
+   SEARCH
+========================= */
+
+.menu-search-wrapper {
+  max-width: 520px;
+  margin: 0 auto 28px;
+  position: relative;
+}
+
+.menu-search-wrapper input {
+  width: 100%;
+  box-sizing: border-box;
+
+  background: white;
+  color: #222;
+
+  border: 1px solid #e1e1e1;
+  border-radius: 14px;
+
+  padding: 15px 18px 15px 48px;
+
+  font-size: 15px;
+
+  outline: none;
+
+  box-shadow:
+    0 3px 12px rgba(0, 0, 0, 0.04);
+
+  transition: 0.25s;
+}
+
+.menu-search-wrapper input:focus {
+  border-color: #d9792b;
+
+  box-shadow:
+    0 0 0 3px rgba(217, 121, 43, 0.12);
+}
+
+.menu-search-wrapper input::placeholder {
+  color: #aaa;
+}
+
+.search-icon {
+  position: absolute;
+
+  left: 18px;
+  top: 50%;
+
+  transform: translateY(-50%);
+
+  color: #777;
+  font-size: 25px;
+
+  pointer-events: none;
+}
+
+
+/* =========================
+   CATEGORY BUTTONS
+========================= */
+
+.category-buttons {
+  display: flex;
+
+  justify-content: center;
+
+  flex-wrap: wrap;
+
+  gap: 10px;
+
+  margin-bottom: 45px;
+}
+
+.category-btn {
+  background: #ffffff !important;
+  color: #555 !important;
+
+  border: 1px solid #e1e1e1 !important;
+
+  border-radius: 30px !important;
+
+  padding: 10px 22px !important;
+
+  font-size: 14px !important;
+  font-weight: 600 !important;
+
+  cursor: pointer;
+
+  min-width: auto !important;
+
+  transition: 0.25s;
+}
+
+.category-btn:hover {
+  background: #272727 !important;
+  color: white !important;
+  border-color: #272727 !important;
+
+  transform: translateY(-2px);
+}
+
+.category-btn.active {
+  background: #272727 !important;
+  color: white !important;
+  border-color: #272727 !important;
+
+  box-shadow:
+    0 5px 15px rgba(0, 0, 0, 0.16);
+}
+
+
+/* =========================
+   RESULT TITLE
+========================= */
+
+.menu-result-row {
+  display: flex;
+
+  justify-content: space-between;
+  align-items: center;
+
+  margin-bottom: 20px;
+}
+
+.menu-result-row h2 {
+  color: #222 !important;
+
+  font-size: 24px;
+
+  margin: 0;
+}
+
+.menu-result-row span {
+  color: #888;
+
+  font-size: 14px;
+}
+
+
+/* =========================
+   GRID
+========================= */
+
+.menu-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(4, minmax(0, 1fr));
+
+  gap: 22px;
+}
+
+
+/* =========================
+   FOOD CARD
+========================= */
+
+.menu-card {
+  background: #ffffff;
+
+  border: 1px solid #ececec;
+
+  border-radius: 18px;
+
+  overflow: hidden;
+
+  box-shadow:
+    0 4px 16px rgba(0, 0, 0, 0.055);
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.menu-card:hover {
+  transform: translateY(-6px);
+
+  box-shadow:
+    0 14px 30px rgba(0, 0, 0, 0.11);
+}
+
+
+/* =========================
+   FOOD IMAGE AREA
+========================= */
+
+.food-image-area {
+  height: 155px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #fff5e9,
+      #f9e4c8
+    );
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  position: relative;
+}
+
+.food-icon {
+  font-size: 72px;
+
+  transition: transform 0.3s ease;
+}
+
+.menu-card:hover .food-icon {
+  transform: scale(1.08);
+}
+
+.food-category {
+  position: absolute;
+
+  top: 13px;
+  left: 13px;
+
+  background: rgba(255, 255, 255, 0.92);
+
+  color: #555;
+
+  padding: 5px 10px;
+
+  border-radius: 20px;
+
+  font-size: 11px;
+  font-weight: 700;
+}
+
+
+/* =========================
+   CARD CONTENT
+========================= */
+
+.menu-card-content {
+  padding: 20px;
+}
+
+.menu-card-content h3 {
+  color: #202020 !important;
+
+  font-size: 19px;
+
+  margin: 0 0 8px;
+
+  font-weight: 700;
+}
+
+.food-description {
+  color: #888 !important;
+
+  font-size: 13px;
+
+  line-height: 1.5;
+
+  min-height: 40px;
+
+  margin: 0 0 20px;
+}
+
+
+/* =========================
+   PRICE + BUTTON
+========================= */
+
+.card-bottom {
+  display: flex;
+
+  justify-content: space-between;
+  align-items: center;
+
+  gap: 10px;
+}
+
+.food-price {
+  color: #222;
+
+  font-size: 21px;
+
+  font-weight: 750;
+}
+
+.food-price span {
+  color: #d9792b;
+
+  font-size: 13px;
+
+  margin-right: 4px;
+
+  font-weight: 700;
+}
+
+
+/* =========================
+   ADD BUTTON
+========================= */
+
+.add-cart-btn {
+  width: auto !important;
+
+  min-width: 80px !important;
+
+  background: #272727 !important;
+
+  color: #ffffff !important;
+
+  border: none !important;
+
+  border-radius: 9px !important;
+
+  padding: 10px 15px !important;
+
+  font-size: 13px !important;
+  font-weight: 650 !important;
+
+  cursor: pointer;
+
+  transition: 0.25s;
+}
+
+.add-cart-btn:hover {
+  background: #d9792b !important;
+
+  color: #ffffff !important;
+
+  transform: translateY(-1px);
+}
+
+
+/* =========================
+   NO ITEMS
+========================= */
+
+.no-items {
+  text-align: center;
+
+  padding: 70px 20px;
+}
+
+.no-items-icon {
+  font-size: 60px;
+
+  margin-bottom: 15px;
+}
+
+.no-items h2 {
+  color: #222 !important;
+
+  margin-bottom: 8px;
+}
+
+.no-items p {
+  color: #888;
+}
+
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 1050px) {
+
+  .menu-grid {
+    grid-template-columns:
+      repeat(3, minmax(0, 1fr));
+  }
+
+}
+
+
+/* =========================
+   SMALL TABLET
+========================= */
+
+@media (max-width: 800px) {
+
+  .menu-grid {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+
+  .menu-header h1 {
+    font-size: 36px;
+  }
+
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 550px) {
+
+  .menu-container {
+    padding:
+      30px
+      16px
+      50px;
+  }
+
+  .menu-header h1 {
+    font-size: 30px;
+  }
+
+  .menu-subtitle {
+    font-size: 14px;
+  }
+
+  .category-buttons {
+    justify-content: flex-start;
+
+    flex-wrap: nowrap;
+
+    overflow-x: auto;
+
+    padding-bottom: 8px;
+
+    margin-bottom: 30px;
+  }
+
+  .category-btn {
+    white-space: nowrap;
+  }
+
+  .menu-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .menu-result-row h2 {
+    font-size: 21px;
+  }
+
+}
