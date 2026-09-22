@@ -29,13 +29,14 @@
 }
 
 .checkout-header h1 {
+  color:#350557;
   font-size: 42px;
   margin: 8px 0;
   letter-spacing: -1px;
 }
 
 .checkout-header p {
-  color: #777;
+  color: #754c4c;
   margin: 0;
 }
 
@@ -86,6 +87,7 @@
 }
 
 .section-title {
+
   display: flex;
   align-items: center;
   gap: 14px;
@@ -107,13 +109,14 @@
 }
 
 .section-title h2 {
+  color:#754c4c;
   margin: 0 0 4px;
   font-size: 19px;
 }
 
 .section-title p {
   margin: 0;
-  color: #888;
+  color: #3a2e2e;
   font-size: 13px;
 }
 
@@ -148,8 +151,8 @@
 .input-group input,
 .input-group textarea {
   width: 100%;
-  border: 1px solid #e3e3e3;
-
+  border: 1px solid #504141;
+  color:#555;
   background: #fafafa;
 
   padding: 13px 14px;
