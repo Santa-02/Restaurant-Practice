@@ -1,154 +1,201 @@
-
-import { useState } from "react";
+import React, { useState } from "react";
 import "./Order.css";
 
 function Order() {
-  const [formData, setFormData] = useState({
+  const [customer, setCustomer] = useState({
     name: "",
     phone: "",
+    email: "",
     address: "",
-    payment: "Cash on Delivery",
   });
 
-  const [orderPlaced, setOrderPlaced] = useState(false);
+  // Sample cart data for now
+  const cartItems = [
+    {
+      id: 1,
+      name: "Chicken Burger",
+      price: 1200,
+      quantity: 2,
+    },
+    {
+      id: 2,
+      name: "French Fries",
+      price: 500,
+      quantity: 1,
+    },
+    {
+      id: 3,
+      name: "Coke",
+      price: 300,
+      quantity: 2,
+    },
+  ];
 
   const handleChange = (e) => {
-    setFormData({
-      ...formData,
+    setCustomer({
+      ...customer,
       [e.target.name]: e.target.value,
     });
   };
 
-  const handleSubmit = (e) => {
+  const subtotal = cartItems.reduce(
+    (total, item) => total + item.price * item.quantity,
+    0
+  );
+
+  const deliveryFee = 300;
+  const total = subtotal + deliveryFee;
+
+  const handlePlaceOrder = (e) => {
     e.preventDefault();
-    setOrderPlaced(true);
+
+    if (
+      !customer.name ||
+      !customer.phone ||
+      !customer.email ||
+      !customer.address
+    ) {
+      alert("Please fill all customer details.");
+      return;
+    }
+
+    alert("Order placed successfully!");
+
+    console.log("Customer Details:", customer);
+    console.log("Order Items:", cartItems);
+    console.log("Total:", total);
   };
 
   return (
     <div className="order-page">
+
       <div className="order-container">
 
-        {/* Page Header */}
-        <div className="order-header">
-          <h1>Place Your Order</h1>
-          <p>Complete your details and enjoy your meal!</p>
-        </div>
+        <h1>Place Your Order</h1>
+        <p className="page-subtitle">
+          Enter your details and review your order
+        </p>
 
-        <div className="order-content">
+        <form onSubmit={handlePlaceOrder}>
 
-          {/* Customer Details */}
-          <div className="order-card">
-            <h2>Customer Details</h2>
+          <div className="order-content">
 
-            <form onSubmit={handleSubmit}>
+            {/* CUSTOMER DETAILS */}
+
+            <div className="customer-section">
+
+              <h2>Customer Details</h2>
 
               <div className="form-group">
                 <label>Full Name</label>
+
                 <input
                   type="text"
                   name="name"
-                  placeholder="Enter your name"
-                  value={formData.name}
+                  placeholder="Enter your full name"
+                  value={customer.name}
                   onChange={handleChange}
-                  required
                 />
               </div>
 
               <div className="form-group">
                 <label>Phone Number</label>
+
                 <input
                   type="tel"
                   name="phone"
                   placeholder="Enter your phone number"
-                  value={formData.phone}
+                  value={customer.phone}
                   onChange={handleChange}
-                  required
+                />
+              </div>
+
+              <div className="form-group">
+                <label>Email</label>
+
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="Enter your email"
+                  value={customer.email}
+                  onChange={handleChange}
                 />
               </div>
 
               <div className="form-group">
                 <label>Delivery Address</label>
+
                 <textarea
                   name="address"
                   placeholder="Enter your delivery address"
-                  value={formData.address}
+                  value={customer.address}
                   onChange={handleChange}
-                  required
-                ></textarea>
+                  rows="4"
+                />
               </div>
 
-              <div className="form-group">
-                <label>Payment Method</label>
+            </div>
 
-                <select
-                  name="payment"
-                  value={formData.payment}
-                  onChange={handleChange}
-                >
-                  <option>Cash on Delivery</option>
-                  <option>Card Payment</option>
-                </select>
+
+            {/* ORDER SUMMARY */}
+
+            <div className="summary-section">
+
+              <h2>Order Summary</h2>
+
+              {cartItems.map((item) => (
+                <div className="summary-item" key={item.id}>
+
+                  <div>
+                    <h3>{item.name}</h3>
+
+                    <p>
+                      Rs. {item.price} × {item.quantity}
+                    </p>
+                  </div>
+
+                  <strong>
+                    Rs. {item.price * item.quantity}
+                  </strong>
+
+                </div>
+              ))}
+
+
+              <div className="summary-line">
+                <span>Subtotal</span>
+                <span>Rs. {subtotal}</span>
               </div>
 
-              <button type="submit" className="place-order-btn">
+              <div className="summary-line">
+                <span>Delivery Fee</span>
+                <span>Rs. {deliveryFee}</span>
+              </div>
+
+              <hr />
+
+              <div className="total-line">
+                <span>Total</span>
+                <strong>Rs. {total}</strong>
+              </div>
+
+              <button
+                type="submit"
+                className="place-order-btn"
+              >
                 Place Order
               </button>
 
-            </form>
+            </div>
+
           </div>
 
-          {/* Order Summary */}
-          <div className="order-card summary-card">
-            <h2>Order Summary</h2>
-
-            <div className="order-item">
-              <div>
-                <h3>Chicken Burger</h3>
-                <p>Quantity: 2</p>
-              </div>
-              <span>Rs. 1,600</span>
-            </div>
-
-            <div className="order-item">
-              <div>
-                <h3>French Fries</h3>
-                <p>Quantity: 1</p>
-              </div>
-              <span>Rs. 500</span>
-            </div>
-
-            <div className="summary-line">
-              <span>Subtotal</span>
-              <span>Rs. 2,100</span>
-            </div>
-
-            <div className="summary-line">
-              <span>Delivery Fee</span>
-              <span>Rs. 200</span>
-            </div>
-
-            <div className="total-line">
-              <span>Total</span>
-              <span>Rs. 2,300</span>
-            </div>
-          </div>
-
-        </div>
-
-        {/* Success Message */}
-        {orderPlaced && (
-          <div className="success-message">
-            <h2>Order Placed Successfully!</h2>
-            <p>
-              Thank you, {formData.name}. Your order has been received.
-            </p>
-          </div>
-        )}
+        </form>
 
       </div>
+
     </div>
   );
 }
 
 export default Order;
-
