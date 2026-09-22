@@ -1,33 +1,68 @@
+import { useState } from "react";
+import AddFood from "../component/AddFood";
+import FoodList from "../component/FoodList";
+import OrderList from "../component/OrderList";
+
 function Admin() {
+  const [foods, setFoods] = useState([
+    {
+      id: 1,
+      name: "Burger",
+      price: 1200,
+    },
+    {
+      id: 2,
+      name: "Pizza",
+      price: 1800,
+    },
+    {
+      id: 3,
+      name: "Rice",
+      price: 900,
+    },
+  ]);
+
+  const [orders] = useState([
+    {
+      id: 1,
+      food: "Burger",
+      quantity: 2,
+      total: 2400,
+    },
+    {
+      id: 2,
+      food: "Pizza",
+      quantity: 1,
+      total: 1800,
+    },
+  ]);
+
+  const addFood = (name, price) => {
+    const newFood = {
+      id: Date.now(),
+      name: name,
+      price: Number(price),
+    };
+
+    setFoods([...foods, newFood]);
+  };
+
+  const deleteFood = (id) => {
+    setFoods(foods.filter((food) => food.id !== id));
+  };
+
   return (
     <div>
       <h1>Admin Panel</h1>
 
-      <section>
-        <h2>Add Food</h2>
+      <AddFood onAddFood={addFood} />
 
-        <input type="text" placeholder="Food name" />
-        <input type="number" placeholder="Price" />
+      <FoodList
+        foods={foods}
+        onDeleteFood={deleteFood}
+      />
 
-        <button>Add Food</button>
-      </section>
-
-      <section>
-        <h2>Food Items</h2>
-
-        <p>🍔 Burger - Rs. 1200</p>
-        <button>Delete</button>
-
-        <p>🍕 Pizza - Rs. 1800</p>
-        <button>Delete</button>
-      </section>
-
-      <section>
-        <h2>Orders</h2>
-
-        <p>Order #001 - Burger x 2</p>
-        <p>Order #002 - Pizza x 1</p>
-      </section>
+      <OrderList orders={orders} />
     </div>
   );
 }
