@@ -1,0 +1,238 @@
+/* ================================
+   CLASSIC RESTAURANT ADMIN
+================================ */
+
+.admin-page {
+  min-height: 100vh;
+  background: #f5efe4;
+  color: #3b2a20;
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+/* Header */
+
+.admin-header {
+  height: 75px;
+  background: #4a2417;
+  color: #fff8ed;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 35px;
+  box-sizing: border-box;
+}
+
+.restaurant-title {
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.admin-user {
+  font-size: 16px;
+}
+
+/* Main layout */
+
+.admin-layout {
+  display: flex;
+  min-height: calc(100vh - 75px);
+}
+
+/* Sidebar */
+
+.admin-sidebar {
+  width: 220px;
+  background: #321812;
+  color: #fff8ed;
+  padding: 25px 15px;
+  box-sizing: border-box;
+}
+
+.sidebar-title {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 20px;
+}
+
+.sidebar-button {
+  width: 100%;
+  background: transparent;
+  border: none;
+  color: #fff8ed;
+  padding: 14px;
+  text-align: left;
+  font-family: inherit;
+  font-size: 15px;
+  cursor: pointer;
+  border-radius: 6px;
+  margin-bottom: 8px;
+}
+
+.sidebar-button:hover {
+  background: #6b3523;
+}
+
+/* Content */
+
+.admin-content {
+  flex: 1;
+  padding: 35px;
+}
+
+.welcome-title {
+  margin-top: 0;
+  font-size: 30px;
+}
+
+.subtitle {
+  color: #765c4c;
+  margin-bottom: 30px;
+}
+
+/* Food cards */
+
+.food-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 25px;
+  margin-bottom: 40px;
+}
+
+.food-card {
+  background: #fffaf2;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(60, 35, 20, 0.15);
+  border: 1px solid #e1d2bd;
+}
+
+.food-image {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  display: block;
+}
+
+.food-info {
+  padding: 18px;
+}
+
+.food-name {
+  font-size: 20px;
+  margin: 0 0 8px;
+}
+
+.food-price {
+  color: #8b4b2d;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+/* Buttons */
+
+.delete-button {
+  background: #8b2e24;
+  color: white;
+  border: none;
+  padding: 9px 15px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.delete-button:hover {
+  background: #682019;
+}
+
+.add-button {
+  background: #6b3523;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.add-button:hover {
+  background: #4a2417;
+}
+
+/* Add Food */
+
+.add-food-section {
+  background: #fffaf2;
+  padding: 25px;
+  border-radius: 12px;
+  border: 1px solid #e1d2bd;
+  margin-bottom: 40px;
+  box-shadow: 0 4px 12px rgba(60, 35, 20, 0.08);
+}
+
+.add-food-form {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.food-input {
+  padding: 12px;
+  border: 1px solid #cdbba5;
+  border-radius: 6px;
+  background: white;
+  font-family: inherit;
+  font-size: 14px;
+}
+
+.food-input:focus {
+  outline: 2px solid #b77a55;
+}
+
+/* Orders */
+
+.orders-section {
+  background: #fffaf2;
+  padding: 25px;
+  border-radius: 12px;
+  border: 1px solid #e1d2bd;
+}
+
+.order-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px;
+  border-bottom: 1px solid #eadbc8;
+}
+
+.order-card:last-child {
+  border-bottom: none;
+}
+
+.order-number {
+  font-weight: bold;
+}
+
+.order-total {
+  font-weight: bold;
+  color: #6b3523;
+}
+
+/* Mobile */
+
+@media (max-width: 700px) {
+  .admin-layout {
+    flex-direction: column;
+  }
+
+  .admin-sidebar {
+    width: 100%;
+  }
+
+  .admin-content {
+    padding: 20px;
+  }
+
+  .admin-header {
+    padding: 0 18px;
+  }
+}
